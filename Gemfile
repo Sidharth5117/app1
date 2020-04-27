@@ -10,7 +10,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use Puma as the app server
 gem 'will_paginate', '~> 3.3.0'
 gem 'bootstrap-will_paginate', '~> 1.0.0'
-
+gem 'devise'
 gem 'semantic-ui-sass'
 gem 'jquery-rails'
 gem 'puma', '~> 4.1'
