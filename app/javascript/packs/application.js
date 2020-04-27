@@ -12,7 +12,7 @@ require("channels")
 
 
 $(document).on('turbolinks:load', function() {
-$('.ui.dropdown').dropdown('show');
+$('.ui.dropdown').dropdown();
 })
 
 
