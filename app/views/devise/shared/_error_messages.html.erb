@@ -1,4 +1,7 @@
+<div class= "ui container">
 <% if resource.errors.any? %>
+<div class="ui error message transition">
+  <i class="close icon"></i>
   <div id="error_explanation">
     <h2>
       <%= I18n.t("errors.messages.not_saved",
@@ -12,4 +15,6 @@
       <% end %>
     </ul>
   </div>
+</div>
 <% end %>
+</div>
