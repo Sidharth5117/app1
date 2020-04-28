@@ -1,22 +1,37 @@
-<div class="ui small inverted menu">
+<div class="ui medium inverted menu">
 <div class="ui container">
-  <a class="active item">
-    Galookup
-  </a>
+  <%= link_to "Galookup", root_path, class: "active item" %>
   <a class="item">
     Browse
   </a>
   <div class="right menu">
-    <div class="ui dropdown item">
-      Activities <i class="dropdown icon"></i>
+<% if current_user %>
+    <a class="item">
+<i class="circular user icon"></i>
+<%= current_user.full_name %>  
+</a>
+
+
+<div class="ui dropdown item">
+      Your Profile <i class="dropdown icon"></i>
       <div class="menu">
-        <a class="item">Running</a>
-        <a class="item">Swimming</a>
-      </div>
+<div class="ui inverted segment">
+<div class="item"><%= link_to "Edit Account", edit_user_registration_path %></div>
+</div>
+</div>
     </div>
-    <div class="item">
-        <div class="ui primary button">Sign Up</div>
+
+
+
+<div class="item">
+        
+<%= link_to "Logout", destroy_user_session_path,class: "ui inverted red button", method: :delete %>
+
     </div>
+
+
+
+<% end %>
   </div>
 </div>
 </div>

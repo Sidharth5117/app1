@@ -13,8 +13,14 @@
 <%= render 'layouts/nav' %>    
 <center>
 <div class="ui container">
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+<% if notice %>
+
+<a class="ui green tag label"><p class="notice"><%= notice %></p></a>
+<% end %>
+<% if alert %>
+<a class="ui green tag label"><p class="alert"><%= alert %></p></a>
+<% end %>
 </div>
 </center>
 <%= yield %>
