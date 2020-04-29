@@ -7,6 +7,14 @@ ruby '2.7.0'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.2'
 # Use sqlite3 as the database for Active Record
 
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'activerecord-session_store'
+
+
+
 # Use Puma as the app server
 gem 'will_paginate', '~> 3.3.0'
 gem 'bootstrap-will_paginate', '~> 1.0.0'
