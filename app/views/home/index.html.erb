@@ -1,2 +1,5 @@
+<% if user_signed_in? %>
 <center><h1>Welcome to Galookup</h1></center>
-
+<% else %>
+<%= render 'shared/login' %>
+<% end %>

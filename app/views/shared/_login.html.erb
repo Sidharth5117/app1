@@ -1,0 +1,58 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %> 
+
+<h2 class="ui center aligned icon header">
+  <i class="circular users icon"></i>
+  Welcome to Galookup
+</h2>
+<br>
+<div class="ui container">
+<div class="ui placeholder segment">
+  <div class="ui two column very relaxed stackable grid">
+    <div class="column">
+      <div class="ui form">
+        <div class="field">
+          <label>Email</label>
+          <div class="ui left icon input">
+            <%= f.email_field :email, autofocus: true,placeholder: "Enter email", autocomplete: "email" %> 
+            <i class="user icon"></i>
+          </div>
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <div class="ui left icon input">
+            <%= f.password_field :password,placeholder: "Enter password", autocomplete: "current-password" %>
+            <i class="lock icon"></i>
+          </div>
+        </div>
+       
+ <% if devise_mapping.rememberable? %>  
+                                                                              
+ <div class="field">                                                                    
+                               
+<div class="row">
+ <%= f.check_box :remember_me %> 
+<%= f.label :remember_me %></div>                                                          
+  </div>                                                                                                                
+<% end %> 
+ <%= f.submit "Login" ,class: 'ui blue submit button' %>
+
+                              
+                 
+ </div>
+    </div>
+    <div class="middle aligned column">
+        <%= link_to "Sign up",  new_user_registration_path, class: "ui green button" %><br>
+<%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path, class: "ui facebook button" %><br>
+<%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, class: "ui google plus button" %>
+    </div>
+
+
+  
+  </div>
+  <div class="ui vertical divider">
+    Or
+  </div>
+</div>
+</div>
+<% end %>
+
