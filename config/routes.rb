@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
  devise_for :users, controllers: {registrations: "users/registrations", omniauth_callbacks: 'omniauth'} 
+  devise_scope :user do
+    get "/users" => "users/registrations#index"
+    get "/users/:id" => "users/registrations#show", :as => :user
+    
+  end
 
 
 
