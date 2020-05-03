@@ -3,6 +3,7 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 require("semantic-ui-sass")
+require("jquery")
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
@@ -33,3 +34,14 @@ $('.ui.dropdown').dropdown();
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "controllers"
+
+
+
+window.initMap = function(...args) {
+const event = document.createEvent("Events")
+event.initEvent("google-maps-callback", true, true)
+event.args=args
+window.dispatchEvent(event)
+}
