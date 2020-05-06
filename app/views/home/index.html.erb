@@ -1,8 +1,4 @@
-<% if user_signed_in? %>
 <center><h1>Welcome to Galookup</h1>
 <br>
 Current Location : <%= @city %>, <%= @country %>
 </center>
-<% else %>
-<%= render 'shared/login' %>
-<% end %>

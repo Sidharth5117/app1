@@ -1,0 +1,29 @@
+<center>
+<h1>Listing all Event Categories</h1>
+</center>
+<br>
+<br>
+
+<div class="ui three column doubling stackable grid container">
+<% @categories.each do |c| %>
+
+
+
+
+
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="content">
+        <a class="header"><%= c.name %></a>
+</div>
+<div class="extra content">
+<%= link_to "Browse", category_path(c), class: 'ui bottom attached button' %>
+      </div>
+
+    </div>
+  </div>
+
+
+
+<% end %>
+</div>

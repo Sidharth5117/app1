@@ -28,7 +28,7 @@ this.autocomplete.bindTo('bounds', this.map)
 this.autocomplete.setFields(['address_components','geometry','icon','name'])
 this.autocomplete.addListener('place_changed', this.placeChanged.bind(this))
 
-this.marker = new google.maps.marker({
+this.marker = new google.maps.Marker({
 map: this.map,
 	anchorPoint: new google.maps.Point(0, -29)
 
