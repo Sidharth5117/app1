@@ -1,37 +1,26 @@
-#<%= render 'form', event: @event %>
+
 <%= form_with(model: @event, local: true) do |form| %>
-<div class="field">
- <%= form.label 'Adress' %>
- <%= form.text_field :address, placeholder: "Enter your adress", id: :autocomplete_address %>
-</div>
+
+
+<div class="ui raised very padded text container segment">
+<h2 class="ui green header">
+Submit a New Event 
+</h2>
+
 
 <div class="field">
- <%= form.label 'Channel number' %>
- <%= form.number_field :street_number, id: :street_number %>
+
+<%= form.label :category_id %>
+<br>
+<%= form.collection_select :category_id, Category.all, :id, :name %>
+
 </div>
 
-<div class="field">
- <%= form.label 'Town' %>
- <%= form.text_field :locality, id: :locality %>
-</div>
- 
-<div class="field">
- <%= form.label 'Name of the channel' %>
- <%= form.text_field :route, id: :route %>
+
+
+
+
 </div>
 
-<div class="field">
- <%= form.label 'Area' %>
- <%= form.text_field :administrative_area_level_1, id: :administrative_area_level_1 %>
-</div>
 
-<div class="field">
- <%= form.label 'Country' %>
- <%= form.text_field :country, id: :country %>
-</div>
-
-<div class="field">
- <%= form.label 'Postal code' %>
- <%= form.number_field :postal_code, id: :postal_code %>
-</div>
 <% end %>
