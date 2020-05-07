@@ -9,6 +9,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+
+
 $('.message .close')
   .on('click', function() {
     $(this)
@@ -19,8 +21,16 @@ $('.message .close')
 ;
 
 
+
+
+
+
 $(document).on('turbolinks:load', function() {
 $('.ui.dropdown').dropdown();
+
+$('#example2').calendar({
+  type: 'date'
+});
 
 })
 
