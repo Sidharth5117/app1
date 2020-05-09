@@ -15,6 +15,10 @@ require("channels")
 
 
 
+
+
+
+$( function() {
 $('.message .close')
   .on('click', function() {
     $(this)
@@ -23,25 +27,17 @@ $('.message .close')
     ;
   })
 ;
-
-
-
-//$( function() {
-
-// } );
+ } );
 
 
 $(document).on('turbolinks:load', function() {
 $('.ui.dropdown').dropdown();
+
  $( "#datepicker" ).datepicker();
+
 $('#example2').calendar({
   type: 'date'
 });
-
-
-
-
-
 
 
 })

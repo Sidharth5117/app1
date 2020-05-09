@@ -12,6 +12,7 @@ end
 
 def create
 @event = Event.new(event_params)
+@event.user_id = current_user.id if user_signed_in? 
 @event.save
 end
 

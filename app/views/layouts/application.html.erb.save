@@ -20,8 +20,6 @@
     <%= csp_meta_tag %>
 
 
-
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -33,25 +31,10 @@
 
 <% if notice %>
 
-
-<div class="ui message">
-  <i class="close icon"></i>
-  <div class="header">
-<p class="notice"><%= notice %></p>
-</div>
-</div>
-
-
+<a class="ui green tag label"><p class="notice"><%= notice %></p></a>
 <% end %>
 <% if alert %>
-
-
-<div class="ui message">
-  <i class="close icon"></i>
-  <div class="header">
-<p class="alert"><%= alert %></p>                                                                                                                                                                                </div>
-</div>
-
+<a class="ui green tag label"><p class="alert"><%= alert %></p></a>
 <% end %>
 </div>
 </center>
