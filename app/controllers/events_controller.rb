@@ -18,7 +18,7 @@ end
 
 private
 def event_params
-params.require(:event).permit(:location)
+params.require(:event).permit(:event_name,:event_date,:event_time,:proof,:category_id,:add_info)
 end
 
 end

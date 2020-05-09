@@ -1,4 +1,29 @@
+<script>
 
+$(function(){
+    $("#datepicker").datepicker(
+
+{
+minDate: 1,
+ maxDate: "+2M"
+}
+
+);
+});
+
+                                                                                                                                                                                                                   $(document).ready(function(){
+    $('input.timepicker').timepicker({
+timeFormat: 'h:mm p',
+    interval: 30,
+    minTime: '5',
+    maxTime: '10:00pm',
+    startTime: '5:00',
+    dynamic: false,
+    dropdown: true,
+    scrollbar: true
+});
+});
+                                                                                                                                                                                                                     </script>
 
 
 
@@ -23,21 +48,67 @@ Submit a New Event
 <div class="field">
           <label>Event Name</label><br>
           <div class="ui left icon input">
-           <%= form.text_field :event_name,placeholder: "Give your event a name" %>
+           <%= form.text_field :event_name,placeholder: "Give your event a name", size: "25x1" %>
             <i class="id card icon"></i>
           </div>
         </div>
 <br>
+
+
 <div class="field">
           <label>Event Date</label><br>
 <div class="ui left icon input">
-<div class="ui calendar" id="example2">
-          <%= form.text_field :event_date, placeholder: "Pick Date" %>
+          <%= form.text_field :event_date, placeholder: "Pick Date", id: 'datepicker' %>
  <i class="calendar icon"></i>  
       </div>
 </div>
+
+
+<br>
+
+
+<div class="field">
+          <label>Event Time</label><br>
+          <div class="ui left icon input">
+           <%= form.text_field :event_time,placeholder: "Pick Time", id: 'timepicker', class: 'timepicker' %>
+            <i class="clock outline icon"></i>
+          </div>
+        </div>
+<br>
+
+
+<div class="field">
+          <label>Proof of Event( Provide URL )</label><br>
+<div class="ui left icon input">                                                                                                                                                                                           
+<%= form.text_field :proof, placeholder: "Enter URL of the Proof", size: "40x1" %>
+ <i class="internet explorer icon"></i>
+      </div>
 </div>
 
+
+<br>
+
+
+
+
+
+<div class="field">
+          <label>Additional Info About the Event</label><br>
+<div class="ui input">                                                                                                                                                                                  
+<%= form.text_area :add_info, placeholder: "Enter any additional information about the event", size: "45x5" %>
+
+      </div>
+</div>
+
+
+
+<br>
+
+<div class="actions">
+    <%= form.submit "Add Event", class: 'ui primary button' %>
+  </div>
+
+&nbsp;<%= link_to "Back", root_path %>
 
 
 </div>

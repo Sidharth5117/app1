@@ -5,9 +5,13 @@
 require("semantic-ui-sass")
 require("jquery")
 require("@rails/ujs").start()
+
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
+
+
+
 
 
 
@@ -22,15 +26,23 @@ $('.message .close')
 
 
 
+//$( function() {
 
+// } );
 
 
 $(document).on('turbolinks:load', function() {
 $('.ui.dropdown').dropdown();
-
+ $( "#datepicker" ).datepicker();
 $('#example2').calendar({
   type: 'date'
 });
+
+
+
+
+
+
 
 })
 
