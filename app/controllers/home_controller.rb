@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
    if Rails.env.production?	
-    @country = request.location.country
+    @country = request.location.country_code
     @city = request.location.city
    end
   end
