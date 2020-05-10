@@ -13,7 +13,6 @@ end
 def create
 @category = Category.new(category_params)
 if @category.save
-greenmsg("Category was created successfully")
 redirect_to categories_path
 
 else
