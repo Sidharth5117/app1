@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   devise_scope :user do
     get "/users" => "users/registrations#index"
     get "/users/:id" => "users/registrations#show", :as => :user
-    
+     get "/users/:id/verifyclub" => "users/registrations#verifyclub", :as => :verifyclub
+   patch "/users/:id" => "users/registrations#updateclub"        
   end
 
 

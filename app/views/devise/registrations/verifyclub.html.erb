@@ -1,0 +1,46 @@
+
+  
+<%= form_with(model: @user, local: true) do |f| %>
+<br><br><br><br>
+<div class="ui raised very padded text container segment">
+
+<h2 class="ui green header">
+Get your Club verified! 
+</h2>
+
+<div class="field">
+          <label>Club Name</label>
+<br>
+
+<div class="ui input">          
+           <%= f.text_field :club_name, autofocus: true,autocomplete: false,placeholder: "Enter your Club Name", size: "40x1" %>
+
+</div>          
+        </div>
+
+
+
+<br>
+
+<div class="field">
+          <label>Club Website</label>
+<br>
+
+<div class="ui input">
+           <%= f.text_field :club_site,autocomplete: false,placeholder: "Enter your Club's Website", size: "40x1" %>                                                                                                 
+</div>
+        </div>
+
+
+
+
+<br>
+<div class="actions">
+    <%= f.submit "Send Your Request", class: 'ui primary button' %>
+  </div>
+
+ 
+<% end %>
+&nbsp;&nbsp;<%= link_to "Back", root_path %>
+
+</div>

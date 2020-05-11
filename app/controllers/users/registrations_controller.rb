@@ -61,9 +61,36 @@ resource_updated =  update_resource(resource, account_update_params)
    end
 
 
+
+def verifyclub
+
+@user = User.find(params[:id])
+end
+
+
+def updateclub
+@user = User.find(params[:id])
+if @user.update(club_params)
+flash[:notice] = "Request for verify of club has been sent!"
+redirect_to root_path
+else
+render 'verifyclub'
+end
+end
+
+
+
+
 def account_update_params
     params.require(:user).permit(:first_name,:last_name,:email,:password,:password_confirmation)
   end
+
+
+def club_params
+params.require(:user).permit(:club_name,:club_site)
+
+end
+
 
 
   # GET /resource/cancel
