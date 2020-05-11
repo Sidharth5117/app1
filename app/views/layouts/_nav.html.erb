@@ -38,6 +38,11 @@
 <% end %>
 
 
+
+
+
+
+
 <% if user_signed_in? and current_user.admin? %>
 
 <div class="item">
@@ -46,10 +51,28 @@
 
 <% end %>
 
+</div>
+</div>
+</div>
 
-</div>
-</div>
-    </div>
+<% if user_signed_in? and current_user.admin? %>
+
+<div class="ui dropdown item">                                                                                                                                                                                           
+Verify <i class="dropdown icon"></i>                                                                                                                                                                              
+ <div class="menu">                                                                                                                                                                                          
+ <div class="ui inverted segment">                                                                                                                                                                                 
+ <div class="item"><%= link_to "Verify Clubs",  "#" %></div>
+ <div class="item"><%= link_to "Verify Events", "#" %></div>                                                                                                                                                
+</div>                                                                                                                                                                                                            
+ </div>                                                                                                                                                                                                                
+ </div> 
+
+
+
+<% end %>
+
+
+
 
 
 
@@ -72,6 +95,9 @@
 <% if !current_user.club_verified? %>
 <div class="item"><%= link_to "Verify Club", verifyclub_path(current_user) %></div>
 <% end %>
+
+
+
 
 
 </div>
