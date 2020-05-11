@@ -1,0 +1,28 @@
+<div class="ui container">
+<center>
+<table class="ui celled table">
+  <thead>
+    <tr><th>User Name</th>
+    <th>Club Name</th>
+    <th>Club Website</th>
+    <th>Verification</th>
+  </tr></thead>
+  <tbody>
+
+
+<% @users.each do |user| %>
+    <tr>
+      <td data-label="User Name"><%= user.full_name %></td>
+      <td data-label="Club Name"><%= user.club_name %></td>
+      <td data-label="Club Website"><%= link_to user.club_site, "#" %></td>
+      <td data-label="Verification"><%= link_to "Click here to Verify", "#" %></td>
+    </tr>
+
+
+
+<% end %>
+
+  </tbody>
+</table>
+</center>
+</div>
