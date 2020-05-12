@@ -7,7 +7,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
 
 before_action :require_same_user, only: [ :edit, :update, :verifyclub, :updateclub]
-before_action :require_admin, only: [ :unverifiedclubs ]
+before_action :require_admin, only: [ :unverifiedclubs, :adminverifyclub, :adminupdateclub ]
 
  def index
 @users = User.all
@@ -19,6 +19,27 @@ def unverifiedclubs
 @users = User.where(club_verified: false).where.not(club_name: nil,club_site: nil)
 
 end
+
+
+
+def adminverifyclub
+@user = User.find(params[:id])
+
+end
+
+
+def adminupdateclub
+@user = User.find(params[:id])
+@user.toggle(:club_verified)
+if @user.update(verify_param)
+flash[:notice] = "You Verified a Club!"
+redirect_to unverifiedclubs_path
+else
+render 'adminverifyclub'
+end
+
+end
+
 
 
 
@@ -102,10 +123,14 @@ params.require(:user).permit(:club_name,:club_site)
 
 end
 
+def verify_param
+params.require(:user).permit(:club_verified)
+end
+
 
 
 def require_same_user
-   if !user_signed_in? || (current_user.id != @user.id) 
+   if !user_signed_in? || (current_user != @user and !current_user.admin?)  
    flash[:notice] = "You can Verify only your club"
    redirect_to root_path
    end

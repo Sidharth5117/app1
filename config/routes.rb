@@ -6,6 +6,8 @@ Rails.application.routes.draw do
      get "/users/:id/verifyclub" => "users/registrations#verifyclub", :as => :verifyclub
    patch "/users/:id" => "users/registrations#updateclub"        
     get "/unverifiedclubs" => "users/registrations#unverifiedclubs", :as => :unverifiedclubs
+   get "/unverifiedclubs/:id" => "users/registrations#adminverifyclub", :as => :adminverifyclub
+   patch "/unverifiedclubs/:id" => "users/registrations#adminupdateclub"
   end
 
 

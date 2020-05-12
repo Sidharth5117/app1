@@ -15,7 +15,7 @@
       <td data-label="User Name"><%= user.full_name %></td>
       <td data-label="Club Name"><%= user.club_name %></td>
       <td data-label="Club Website"><%= link_to user.club_site, "#" %></td>
-      <td data-label="Verification"><%= link_to "Click here to Verify", "#" %></td>
+      <td data-label="Verification"><%= link_to "Click here to Verify", adminverifyclub_path(user) %></td>
     </tr>
 
 

@@ -1,0 +1,50 @@
+<%= form_with(model: @user,local: true) do |f| %>
+
+<br><br><br><br>
+<div class="ui raised very padded text container segment">
+
+<h2 class="ui green header">
+Verify this Club 
+</h2>
+
+<div class="field">
+          <label>Club Name</label>
+<br>
+
+<div class="ui input">          
+           <%= f.text_field :club_name, disabled: true, size: "50x1" %>
+</div>          
+        </div>
+
+
+
+<br>
+
+
+<div class="field">
+          <label>Club Site</label>
+<br>
+
+<div class="ui input">
+           <%= f.text_field :club_site, disabled: true, size: "50x1" %>                                                                                                                                                             
+</div>
+</div>
+&nbsp;&nbsp;<%= link_to "Visit Club's Site", "http://#{@user.club_site}" , :target => "_blank" %>
+     
+
+<br>
+<br>
+
+
+
+
+
+<div class="actions">
+    <%= f.submit "Verify", class: 'ui primary button' %>
+  </div>
+
+ 
+<% end %>
+&nbsp;<%= link_to "Back", unverifiedclubs_path %>
+
+</div>
