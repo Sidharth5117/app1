@@ -9,8 +9,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
 before_action :require_same_user, only: [ :edit, :update, :verifyclub, :updateclub]
 before_action :require_admin, only: [ :unverifiedclubs, :adminverifyclub, :adminupdateclub ]
 
+
+
+
  def index
-@users = User.where(club_verified: true)
+@users = User.all
 end
 
 
@@ -28,13 +31,12 @@ def adminverifyclub
 end
 
 
+
 def adminupdateclub
 @user = User.find(params[:id])
-@user.toggle(:club_verified)
-if @user.save
-flash[:notice] = "You Verified a Club!"
-redirect_to unverifiedclubs_path
-else
+if @user.update(verify_param)
+flash[:notice] = @user.club_name + " Has been verified!" 
+redirect_to unverifiedclubs_path                                                                                                                                                                                              else
 render 'adminverifyclub'
 end
 
@@ -102,7 +104,8 @@ end
 
 def updateclub
 @user = User.find(params[:id])
-if @user.update(club_params)
+@user.toggle(:club_verified)
+if @user.update
 flash[:notice] = "Request for verify of club has been sent!"
 redirect_to root_path
 else
@@ -123,14 +126,18 @@ params.require(:user).permit(:club_name,:club_site)
 
 end
 
+
 def verify_param
 params.require(:user).permit(:club_verified)
 end
 
 
 
+
+
+
 def require_same_user
-   if !user_signed_in? || (current_user != @user and !current_user.admin?)  
+   if !user_signed_in? || (current_user.id != @user.id) 
    flash[:notice] = "You can Verify only your club"
    redirect_to root_path
    end

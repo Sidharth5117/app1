@@ -4,10 +4,10 @@ Rails.application.routes.draw do
     get "/users" => "users/registrations#index"
     get "/users/:id" => "users/registrations#show", :as => :user
      get "/users/:id/verifyclub" => "users/registrations#verifyclub", :as => :verifyclub
-   patch "/users/:id" => "users/registrations#updateclub"        
-    get "/unverifiedclubs" => "users/registrations#unverifiedclubs", :as => :unverifiedclubs
-   get "/unverifiedclubs/:id" => "users/registrations#adminverifyclub", :as => :adminverifyclub
-   patch "/unverifiedclubs/:id" => "users/registrations#adminupdateclub"
+    patch "/users/:id/verifyclub" => "users/registrations#updateclub"
+    get "/unverifiedclubs/" => "users/registrations#unverifiedclubs", :as => :unverifiedclubs
+   get "/unverifiedclubs/:id/adminverifyclub" => "users/registrations#adminverifyclub", :as => :adminverifyclub
+   patch "/unverifiedclubs/:id/adminverifyclub" => "users/registrations#adminupdateclub"
   end
 
 

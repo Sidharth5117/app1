@@ -1,6 +1,6 @@
 
   
-<%= form_with(model: @user, local: true) do |f| %>
+<%= form_with(model: @user,url: verifyclub_path(@user),method: "patch", local: true) do |f| %>
 <br><br><br><br>
 <div class="ui raised very padded text container segment">
 
@@ -36,7 +36,7 @@ Get your Club verified!
 
 <br>
 <div class="actions">
-    <%= f.submit "Send Your Request", class: 'ui primary button' %>
+    <%= f.submit "Send Your Request", class: 'ui primary button', method: "updateclub" %>
   </div>
 
  
