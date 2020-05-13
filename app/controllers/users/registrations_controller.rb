@@ -32,7 +32,7 @@ def adminupdateclub
 @user = User.find(params[:id])
 @user.toggle(:club_verified)
 if @user.save
-flash[:notice] = "You Verified a Club!"
+flash[:notice] = "You Verified " + @user.club_name
 redirect_to unverifiedclubs_path
 else
 render 'adminverifyclub'

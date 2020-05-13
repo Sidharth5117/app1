@@ -30,11 +30,9 @@
       Events <i class="dropdown icon"></i>
       <div class="menu">
 <div class="ui inverted segment">
-<% Category.all.each do |category| %>
 <div class="item"><%= link_to "All Categories", categories_path %></div>
+<% Category.all.each do |category| %>
 <div class="item"><%= link_to category.name, category_path(category) %></div>
-
-
 <% end %>
 
 
