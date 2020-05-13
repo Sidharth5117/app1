@@ -1,0 +1,29 @@
+<div class="ui container">
+<center>
+<table class="ui celled table">
+  <thead>
+    <tr><th>Event Name</th>
+    <th>Event Date</th>
+    <th>Category</th>   
+        <th>Verification</th>
+
+  </tr></thead>
+  <tbody>
+
+
+<% @events.each do |event| %>
+    <tr>
+      <td data-label="Event Name"><%= event.event_name %></td>
+      <td data-label="Event Date"><%= event.event_date %></td>
+      <td data-label="Category"><%= event.category.name %></td>
+      <td data-label="Verification"><%= link_to "Click here to Verify", adminverifyevent_path(event) %></td>
+    </tr>
+
+
+
+<% end %>
+
+  </tbody>
+</table>
+</center>
+</div>

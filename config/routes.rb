@@ -16,6 +16,10 @@ Rails.application.routes.draw do
 resources :categories, except: [:destroy]
 root "home#index"
 resources :events
+get "/unverifiedevents/" => "events#unverifiedevents", :as => :unverifiedevents
+get "/unverifiedevents/:id/adminverifyevent" => "events#adminverifyevent", :as => :adminverifyevent
+patch "/unverifiedevents/:id/adminverifyevent" => "events#adminupdateevent"
+
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 

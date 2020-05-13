@@ -1,0 +1,78 @@
+<%= form_with(model: @event,url: adminverifyevent_path(@event),method: "patch",local: true) do |f| %>
+
+<br><br>
+<div class="ui raised very padded text container segment">
+
+<h2 class="ui green header">
+Verify this Event 
+</h2>
+
+<div class="field">
+          <label>Event Name</label>
+<br>
+
+<div class="ui input">          
+           <%= f.text_field :event_name, disabled: true, size: "50x1" %>
+</div>          
+        </div>
+
+
+
+<br>
+
+
+<div class="field">
+          <label>Event Date</label>
+<br>
+
+<div class="ui disabled input">
+           <%= f.text_field :event_date, disabled: true, size: "50x1" %>                                                                                                                                                         
+</div>
+</div>
+
+<br>
+                                                                                                                                                                                                                  
+<div class="field">
+          <label>Category : </label><a class="ui green label"><%= @event.category.name %></a>
+
+                                                                                                                               
+</div>
+                                                                                                                                                                                                                   
+
+
+
+
+
+<br>
+                                                                                                                                                                                                                   
+<div class="field">
+          <label>Additional Info</label>
+<br>
+
+<div class="ui input">
+           <%= f.text_field :add_info, disabled: true, size: "50x4" %>                                                                                                                                          
+</div>
+</div>
+                                                                                                                                                                                                                   
+
+<br>
+
+
+
+
+
+<br>
+
+
+
+
+
+<div class="actions">
+    <%= f.submit "Verify", class: 'ui primary button', :method=> "adminupdateevent" %>
+  </div>
+
+ 
+<% end %>
+&nbsp;<%= link_to "Back", unverifiedevents_path %>
+
+</div>
