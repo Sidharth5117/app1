@@ -81,9 +81,51 @@ Verify this Event
 </div>
 &nbsp;<%= link_to "Visit Events's Site", "http://#{@event.proof}" , :target => "_blank" %>
 
+<br>
+<hr>
+<h3 class="ui green header">
+Update these details
+</h2>
+<div class="field">                                                                                                                                                                                                          
+<label>Location</label>                                                                                                                                                                           
+ <br>
+<div class="ui input">
+
+<%= f.text_field :location,placeholder: "Enter location of event", size: "50x1" %>
+</div>
+</div>
 
 
 
+<br>
+<div class="field">                                                                                                                                                                                               
+<label>Google Maps Link</label>
+ <br>
+<div class="ui input">                                                                                                                                                                                             
+<%= f.text_field :gmaps_link,placeholder: "Enter Google Maps Link of Location", size: "50x1" %>
+</div>
+</div>
+
+
+
+<br>
+
+<div class="field">                                                                                                                                                                                          
+<label>Longitude</label>                                                                                                                                                                                        <br>
+<div class="ui input">                                                                                                                                                                                             
+<%= f.text_field :long,placeholder: "Enter Longitude of address", size: "50x1" %>
+</div>
+</div>
+
+
+<br>
+
+<div class="field">                                                                                                                                                                                               
+ <label>Latitude</label>                                                                                                                                                                                        <br>
+<div class="ui input">                                                                                                                                                                                            
+ <%= f.text_field :lang,placeholder: "Enter Latitude of address", size: "50x1" %>
+</div>
+</div>
 
 
 
