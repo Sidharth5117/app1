@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-
+before_action :require_admin, only: [ :unverifiedevents, :adminverifyevent, :adminupdateevent ]
 
 def index
 @events = Event.all
@@ -36,8 +36,8 @@ end
 
 def adminupdateevent
 @event = Event.find(params[:id])
-@user.toggle(:event_verified)
-if @user.update(event_params2)
+@event.toggle(:event_verified)
+if @event.update(event_params2)
 flash[:notice] = "You Verified " + @event.event_name
 redirect_to unverifiedevents_path
 else
@@ -63,8 +63,17 @@ end
 
 
 def event_params2
-params.require(:event).permit(:location, :long, :lang)
+params.require(:event).permit(:location, :long, :lang, :gmaps_link)
 end
+
+
+
+def require_admin
+   if !user_signed_in? || (user_signed_in? && !current_user.admin?)
+   flash[:notice] = "Only admin users have this privelege"
+   redirect_to root_path
+   end
+   end
 
 
 end
