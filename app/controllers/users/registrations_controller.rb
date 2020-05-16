@@ -6,6 +6,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
 
+before_action :set_user, only: [:verifyclub, :edit, :update, :updateclub]
 before_action :require_same_user, only: [ :edit, :update, :verifyclub, :updateclub]
 before_action :require_admin, only: [ :unverifiedclubs, :adminverifyclub, :adminupdateclub ]
 
@@ -95,7 +96,6 @@ resource_updated =  update_resource(resource, account_update_params)
 
 
 def verifyclub
-
 @user = User.find(params[:id])
 end
 
@@ -130,11 +130,17 @@ end
 
 
 def require_same_user
-   if !user_signed_in? || (current_user != @user and !current_user.admin?)  
+   if !user_signed_in? or (user_signed_in? and current_user != @user)  
    flash[:notice] = "You can Verify only your club"
    redirect_to root_path
    end
   end
+
+
+
+def set_user
+@user = User.find(params[:id])
+end
 
 
 
