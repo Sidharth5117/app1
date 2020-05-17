@@ -1,13 +1,22 @@
 class EventsController < ApplicationController
 before_action :require_admin, only: [ :unverifiedevents, :adminverifyevent, :adminupdateevent ]
 
+
+
+
 def index
-@events = Event.all
+@events = Event.where(event_verified: true)
 end
 
 def new
 @event = Event.new
 end
+
+
+def show
+@event = Event.find(params[:id])
+end
+
 
 
 def create

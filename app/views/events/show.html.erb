@@ -1,0 +1,25 @@
+<div class="ui container">
+<div class="ui inverted segment">
+  <h1 class="ui horizontal inverted divider">
+    Event Information
+  </h1>
+    <p><h3 class="ui green header">Event Name</h3>&nbsp;&nbsp;&nbsp;<%= @event.event_name %></p>
+  <div class="ui inverted divider"></div>
+  
+ <p><h3 class="ui green header">Event Category</h3>&nbsp;&nbsp;&nbsp;<%= @event.category.name %></p>
+  <div class="ui inverted divider"></div>
+
+
+
+   <p><h3 class="ui green header">Event Date & Time</h3>&nbsp;&nbsp;&nbsp;<%= @event.event_date %>&nbsp;&nbsp;<%= @event.event_time %></p>
+<div class="ui inverted divider"></div>
+     <p><h3 class="ui green header">Location</h3>&nbsp;&nbsp;&nbsp;<%= @event.location %>&nbsp;&nbsp;&nbsp;<%= link_to "Google Maps Link", "http://#{@event.gmaps_link}" , :target => "_blank" %></p>
+
+<div class="ui inverted divider"></div>
+     <p><h3 class="ui green header">Event Website</h3>&nbsp;&nbsp;&nbsp;<%= link_to @event.proof, "http://#{@event.proof}" , :target => "_blank" %></p>
+
+ <div class="ui inverted divider"></div>
+ <p><h3 class="ui green header">Additional Information</h3>&nbsp;&nbsp;&nbsp;<%= @event.add_info %></p>
+
+</div>
+</div>
