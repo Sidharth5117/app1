@@ -22,7 +22,12 @@ end
 def create
 @event = Event.new(event_params)
 @event.user_id = current_user.id if user_signed_in? 
-@event.save
+if @event.save
+flash[:notice] = "You successfully submitted an event. Your event will be published once its verified by the website"
+redirect_to root_path
+else
+render 'new'
+end
 end
 
 
