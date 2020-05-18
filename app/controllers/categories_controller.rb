@@ -23,6 +23,9 @@ end
 
 
 def show
+@category = Category.find(params[:id])
+@category_events = @category.events.where(event_verified: true)
+
 
 end
 
