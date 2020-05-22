@@ -12,6 +12,7 @@ before_action :require_admin, only: [ :unverifiedclubs, :adminverifyclub, :admin
 
  def index
 @users = User.where(club_verified: true)
+
 end
 
 
@@ -46,7 +47,8 @@ end
 
 def show
 @user = User.find(params[:id])
-@events = @user.events.where(event_verified: true)
+@events = @user.events.where(event_verified: true).where("event_date > ?",Time.new.strftime("%m/%d/%Y"))
+
 end
 
 

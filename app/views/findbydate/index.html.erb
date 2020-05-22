@@ -1,0 +1,45 @@
+<script>
+
+$(function(){
+    $("#datepicker").datepicker(
+
+{
+minDate: 1,
+ maxDate: "+2M"
+}
+
+);
+});
+</script>
+
+                                                                                                                                                      
+<div class="ui raised very padded text container segment">
+
+<h2 class="ui green header">
+Find Events on a Specific Date
+</h2>
+
+<div class="field">
+          <label>Event Date</label><br>
+<div class="ui left icon input">
+          <%= text_field_tag(:datepicker, params[:event_date]) %>
+ <i class="calendar icon"></i>                                                                                                                                                                                           </div>
+</div>
+
+
+
+
+
+<br>
+<div class="actions">
+    <%= link_to "Find Events",findbydate_path(:event_date => '#{params[:event_date]}'), class: 'ui primary button' %>
+  </div>
+
+
+
+
+
+
+&nbsp;<%= link_to "Back", root_path %>
+
+</div>

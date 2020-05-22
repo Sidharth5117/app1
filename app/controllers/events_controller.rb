@@ -2,10 +2,8 @@ class EventsController < ApplicationController
 before_action :require_admin, only: [ :unverifiedevents, :adminverifyevent, :adminupdateevent ]
 
 
-
-
 def index
-@events = Event.where(event_verified: true)
+@events = Event.where(event_verified: true).where("event_date > ?",Time.new.strftime("%m/%d/%Y"))
 end
 
 def new
@@ -33,8 +31,8 @@ end
 
 
 def unverifiedevents
-@events = Event.where(event_verified: false)
 
+@events = Event.where(event_verified: true).where("event_date > ?",Time.new.strftime("%m/%d/%Y"))
 end
 
 

@@ -1,0 +1,35 @@
+<%= form_tag(findbyname_path, method: :get) do %>  
+ 
+
+<br><br><br><br>
+<div class="ui raised very padded text container segment">
+
+<h2 class="ui green header">
+Find Events using Name
+</h2>
+
+<div class="field">
+          <label>Event Name</label>
+<br>
+
+<div class="ui input">
+  
+    <%= search_field_tag :event_name, params[:event_name], placeholder: "Event Name", class: "form-control" %>  
+    
+</div>
+
+</div>
+<br>
+<div class="actions">  
+      <%= button_tag "Find Events", :class => 'ui primary button',:name => nil%>  
+    </div>  
+    
+<% end %>
+
+
+
+
+ 
+&nbsp;<%= link_to "Back", root_path %>
+
+</div>
