@@ -1,7 +1,7 @@
 <script>
 
 $(function(){
-    $("#datepicker").datepicker(
+    $("#event_date").datepicker(
 
 {
 minDate: 1,
@@ -12,34 +12,40 @@ minDate: 1,
 });
 </script>
 
-                                                                                                                                                      
+
+  
+<%= form_tag(findbydate_path, method: :get) do %>  
+ 
+
+<br><br><br><br>
 <div class="ui raised very padded text container segment">
 
 <h2 class="ui green header">
-Find Events on a Specific Date
+Find Events on a given date
 </h2>
 
 <div class="field">
-          <label>Event Date</label><br>
-<div class="ui left icon input">
-          <%= text_field_tag(:datepicker, params[:event_date]) %>
- <i class="calendar icon"></i>                                                                                                                                                                                           </div>
+          <label>Event Date</label>
+<br>
+
+<div class="ui input">
+   <%= text_field_tag :event_date, params[:event_date], placeholder: "Pick Date" %>
+      
+    
 </div>
 
-
-
-
-
+</div>
 <br>
-<div class="actions">
-    <%= link_to "Find Events",findbydate_path(:event_date => '#{params[:event_date]}'), class: 'ui primary button' %>
-  </div>
+<div class="actions">  
+      <%= button_tag "Find Events", :class => 'ui primary button',:name => nil%>  
+    </div>  
+    
+<% end %>
 
 
 
 
-
-
+ 
 &nbsp;<%= link_to "Back", root_path %>
 
 </div>

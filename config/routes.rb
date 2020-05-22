@@ -18,12 +18,13 @@ root "home#index"
 resources :events
 get "/unverifiedevents/" => "events#unverifiedevents", :as => :unverifiedevents
 get "/unverifiedevents/:id/adminverifyevent" => "events#adminverifyevent", :as => :adminverifyevent
-get "/findbydate/" => "findbydate#index", :as => :findbydate1
-get "/findbydate/:event_date" => "findbydate#show", :as => :findbydate
 
 get "/findbyname/" => "findbyname#index", :as => :findbyname1
 get "/findbyname/search/" => "findbyname#search", :as => :findbyname 
 
+
+get "/findbydate/" => "findbydate#index", :as => :findbydate1
+get "/findbydate/search/" => "findbydate#search", :as => :findbydate
 
 
 patch "/unverifiedevents/:id/adminverifyevent" => "events#adminupdateevent"
