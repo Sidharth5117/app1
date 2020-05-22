@@ -3,7 +3,7 @@ before_action :require_admin, only: [ :unverifiedevents, :adminverifyevent, :adm
 
 
 def index
-@events = Event.where(event_verified: true).where("event_date > ?",Time.new.strftime("%m/%d/%Y"))
+@events = Event.where(event_verified: true).where("event_date >= ?",Time.new.strftime("%m/%d/%Y"))
 end
 
 def new

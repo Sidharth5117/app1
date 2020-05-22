@@ -24,7 +24,8 @@ end
 
 def show
 @category = Category.find(params[:id])
-@category_events = @category.events.where(event_verified: true)
+@category_events = @category.events.where(event_verified: true).where("event_date >= ?",Time.new.strftime("%m/%d/%Y"))
+
 
 
 end
