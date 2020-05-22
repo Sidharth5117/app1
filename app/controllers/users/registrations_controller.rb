@@ -47,7 +47,7 @@ end
 
 def show
 @user = User.find(params[:id])
-@events = @user.events.where(event_verified: true).where("event_date > ?",Time.new.strftime("%m/%d/%Y"))
+@events = @user.events.where(event_verified: true).where("event_date >= ?",Time.new.strftime("%m/%d/%Y"))
 
 end
 

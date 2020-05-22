@@ -12,7 +12,8 @@ def search
   else  
 
     @parameter = params[:event_name].downcase  
-     @results = Event.all.where(event_verified: true).where("lower(event_name) LIKE ?", "%" + @parameter + "%")
+     @results = Event.all.where(event_verified: true).where("lower(event_name) LIKE ?", "%" + @parameter + "%").where("event_date >= ?",Time.new.strftime("%m/%d/%Y"))
+
     
   end  
 end

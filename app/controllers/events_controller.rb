@@ -32,7 +32,7 @@ end
 
 def unverifiedevents
 
-@events = Event.where(event_verified: true).where("event_date > ?",Time.new.strftime("%m/%d/%Y"))
+@events = Event.where(event_verified: true).where("event_date >= ?",Time.new.strftime("%m/%d/%Y"))
 end
 
 
