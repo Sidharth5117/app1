@@ -1,9 +1,6 @@
 class HomeController < ApplicationController
   def index
-   if Rails.env.production?	
-    @country = request.location.country_code
-    @city = request.location.city
-   end
+   @events = Event.where(event_verified: true).where("event_date >= ?",Time.new.strftime("%m/%d/%Y"))
   end
 
   def about

@@ -1,42 +1,5 @@
 <center><h1>Welcome to <%= @user.club_name %>'s Page </h1>
+
 <h3 class="ui green header">Listing All Events By This Club</h3></center>
-<div class="ui container">
-<center>
-<br>
-<table class="ui inverted black celled table">
-  <thead>
-   
-   <tr>
-<th>Sr No</th>
-<th>Event Name</th>
-    <th>Event Date</th>
-    <th>Category</th>   
-    <th>Location</th>
-    <th>Options</th>       
 
-  </tr></thead>
-  <tbody>
-
-<% @count = 0 %>
-<% @events.each do |event| %>
-    <tr>
-     <td data-label="Sr No"><%= @count += 1 %></td>
-      <td data-label="Event Name"><%= event.event_name %></td>
-      <td data-label="Event Date"><%= event.event_date %></td>
-      
-      <td data-label="Category"><%= event.category.name %></td>
- <td data-label="Location"><%= event.location %></td>      
-<td data-label="Options">
-<%= link_to "Details",  event_path(event), class: "ui blue button" %>&nbsp;&nbsp;<%= link_to "Google Maps Link",  "http://#{event.gmaps_link}" , :target => "_blank" , class: "ui green button" %><br>
-
-     </td>     
-   </tr>
-
-
-
-<% end %>
-
-  </tbody>
-</table>
-</center>
-</div>
+<%= render 'shared/events', obj: @events %>
